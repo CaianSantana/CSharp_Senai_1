@@ -1,7 +1,13 @@
 namespace Encontro_Remoto
 {
-    public class Pessoa
+    public abstract class Pessoa
     {
+        public string nome { get; set; }
+        public string endereco { get; set; }
+        public bool enderecoComercial { get; set; }
+        
+        public abstract void pagarImposto(float salario);
+        
         
     }
 }
