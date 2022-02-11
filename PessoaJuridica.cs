@@ -10,7 +10,7 @@ namespace Encontro_Remoto
         
             public bool validarCNPJ(string cnpj) {
                  ;
-                if (cnpj.Length >= 14 && cnpj.Substring(cnpj.Length)=="0001"){
+                if (cnpj.Length >= 14 && cnpj.Substring(cnpj.Length - 4)=="0001"){
                     return true;
                 }else{
                     return false;

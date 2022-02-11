@@ -42,12 +42,12 @@ namespace Encontro_Remoto
             end.numero = 18;
             end.complemento = "Proximo ao Senai";
             end.enderecoComercial = false;
-            novapj.cnpj = "123456789012345";
+            novapj.cnpj = "12345678900001";
             novapj.razaoSocial = "Pessoa Jurídica";
             novapj.endereco = end;
             if (pj.validarCNPJ(novapj.cnpj))
             {
-                Console.WriteLine("CNPJ invalido.");
+                Console.WriteLine("CNPJ válido.");
             }
             else
             {
