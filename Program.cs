@@ -96,7 +96,6 @@ namespace Encontro_Remoto
                             Console.Clear();
                             Console.WriteLine($"Obrigado por utilizar nosso sistema!\n\n");
                             BarraCarregamento("Finalizando", 500);
-                            BarraCarregamento("\n\nCarregando",200);
                             break;
                             
                         default:
