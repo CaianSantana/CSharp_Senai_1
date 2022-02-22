@@ -5,7 +5,7 @@ namespace Encontro_Remoto
     public class PessoaFisica : Pessoa
     {
         
-        public string cpf { get; set; }
+        public string? cpf { get; set; }
         public DateTime dataNascimento { get; set; }    
         public override void pagarImposto(float salario){
         }    
