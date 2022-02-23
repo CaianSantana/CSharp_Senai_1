@@ -54,9 +54,11 @@ namespace Encontro_Remoto
                             novapf.cpf = "000000000";
                             novapf.dataNascimento = new DateTime(2002/09/23);
                             novapf.nome = "Caian";
+                            novapf.rendimento = 1500;
 
                             PessoaFisica pf = new PessoaFisica();
-                            pf.validarDataNascimento(pf.dataNascimento);
+                            // pf.validarDataNascimento(pf.dataNascimento);
+                            Console.WriteLine(pf.pagarImposto(novapf.rendimento).ToString("N2"));
 
                             bool idadeValida = pf.validarDataNascimento(novapf.dataNascimento);
 
@@ -71,7 +73,6 @@ namespace Encontro_Remoto
                         
                         case "2":
                             Console.Clear();
-                            PessoaJuridica pj = new PessoaJuridica();
                             PessoaJuridica novapj = new PessoaJuridica();
                             Endereco endPj = new Endereco();
                             endPj.logradouro = "Rua x";
@@ -81,6 +82,11 @@ namespace Encontro_Remoto
                             novapj.cnpj = "12345678900001";
                             novapj.razaoSocial = "Pessoa Jurídica";
                             novapj.endereco = endPj;
+                            novapj.rendimento = 8000;
+
+                            PessoaJuridica pj = new PessoaJuridica();
+                            Console.WriteLine(pj.pagarImposto(novapj.rendimento).ToString("N2"));
+                            
                             if (pj.validarCNPJ(novapj.cnpj))
                             {
                                 Console.WriteLine("CNPJ válido.");
