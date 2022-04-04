@@ -5,23 +5,23 @@
 
 ## Features
 
-• Registro de pessoas físicas e jurídicas
+* Registro de pessoas físicas e jurídicas
 para pessoas físicas, ele pede: CPF, Nome e Data de Nascimento;
 
 para pessoas jurídicas: CNPJ e Razão Social;
 
 O sistema recebe os endereços de ambos e pergunta se é comercial ou não.
 
-• Consultas de cadastros
+* Consultas de cadastros
 
-• Exclusão de cadastros
+* Exclusão de cadastros
 
-• Armazenamento de dados em arquivos.
+* Armazenamento de dados em arquivos.
 
 ## Tecnologias utilizadas
-• Visual Studio Code;
+* Visual Studio Code;
 
-• C#;
+* C#;
 
 ## Organização do projeto
 
@@ -30,26 +30,26 @@ O sistema recebe os endereços de ambos e pergunta se é comercial ou não.
 
 ## Pre-requisitos de instalação
 Baixar e, se necessário, instalar:
-• Visual Studio Code;
+* Visual Studio Code;
 
-• .Net SDK;
+* .Net SDK;
 
-• C#;
+* C#;
 
-• CSharp_Senai_1
+* CSharp_Senai_1
 
 Extraia o .zip do código baixado pelo GitHub para o local de preferência
 ## Execução da Instalação
-• Abra o Visual Studio Code;
+1. Abra o Visual Studio Code;
 
-• Abra a pasta extraída do CSharp_Senai_1 pelo Visual Code Studio;
+2. Abra a pasta extraída do CSharp_Senai_1 pelo Visual Code Studio;
 
-• No terminal Windows PowerShell digite: dotnet run
+3. No terminal Windows PowerShell digite: dotnet run
 
 ## Erros Comuns
-• Erros na escrita das informações
+* Erros na escrita das informações
 
-• Pular etapas ou seguir errôneamente as instruções
+* Pular etapas ou seguir errôneamente as instruções
 
 ## Contribuidores: Troppo
 ### Desenvolvedor Caian Santana
