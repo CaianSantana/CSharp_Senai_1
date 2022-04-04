@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Collections.Generic;
+using System.IO;
 using Encontro_Remoto;
 
 namespace Encontro_Remoto
@@ -52,7 +53,20 @@ namespace Encontro_Remoto
                     {
                         case "1":
                             Console.Clear();
+                            
+                            PessoaFisica novapf = new PessoaFisica();
+
+                            Console.WriteLine("Digite seu CPF(Somente números): ");
+                            novapf.cpf = Console.ReadLine();
+
+                            Console.WriteLine("Digite seu nome: ");
+                            novapf.nome = Console.ReadLine();
+
+                            Console.WriteLine("Digite sua data de nascimento(dd/mm/aaaa): ");
+                            novapf.dataNascimento = DateTime.Parse(Console.ReadLine());
+                            
                             Endereco endPf = new Endereco();
+                            
                             Console.WriteLine("Digite seu Logradouro: ");
                             endPf.logradouro = Console.ReadLine();
 
@@ -71,16 +85,7 @@ namespace Encontro_Remoto
                                 endPf.enderecoComercial = false;
                             }
 
-                            PessoaFisica novapf = new PessoaFisica();
-
-                            Console.WriteLine("Digite seu CPF(Somente números): ");
-                            novapf.cpf = Console.ReadLine();
-
-                            Console.WriteLine("Digite seu nome: ");
-                            novapf.nome = Console.ReadLine();
-
-                            Console.WriteLine("Digite sua data de nascimento(dd/mm/aaaa): ");
-                            novapf.dataNascimento = DateTime.Parse(Console.ReadLine());
+                            
 
                             PessoaFisica pf = new PessoaFisica();
                             // pf.validarDataNascimento(pf.dataNascimento);
@@ -92,6 +97,7 @@ namespace Encontro_Remoto
                             {
                                 Console.WriteLine("Cadastro aprovado.");
                                 ListaPF.Add(novapf);
+                                GuardarArquivo(novapf.nome, "Nome",novapf.nome, "CPF", novapf.cpf);
                             }else{
                                 Console.WriteLine("Cadastro não aprovado.");
                             }
@@ -108,7 +114,7 @@ namespace Encontro_Remoto
                         case "3":
 
                             Console.WriteLine("Digite o CPF que deseja remover: ");
-                            string cpfProcurado = Console.ReadLine();
+                            string? cpfProcurado = Console.ReadLine();
 
                             PessoaFisica pessoaEncontrada = ListaPF.Find(cadaItem => cadaItem.cpf == cpfProcurado);
                             if (pessoaEncontrada != null)
@@ -124,6 +130,15 @@ namespace Encontro_Remoto
                             Console.Clear();
                             PessoaJuridica novapj = new PessoaJuridica();
                             Endereco endPj = new Endereco();
+                            
+                            Console.WriteLine("Digite seu CNPJ(Somente números): ");
+                            novapj.cnpj = Console.ReadLine();
+
+                            Console.WriteLine("Digite sua Razão Social: ");
+                            novapj.razaoSocial = Console.ReadLine();
+
+                            novapj.endereco = endPj;
+                            
                             Console.WriteLine("Digite seu Logradouro: ");
                             endPj.logradouro = Console.ReadLine();
 
@@ -142,22 +157,16 @@ namespace Encontro_Remoto
                                 endPj.enderecoComercial = false;
                             }
 
-                            Console.WriteLine("Digite seu CNPJ(Somente números): ");
-                            novapj.cnpj = Console.ReadLine();
 
-                            Console.WriteLine("Digite sua Razão Social: ");
-                            novapj.razaoSocial = Console.ReadLine();
-
-                            novapj.endereco = endPj;
                             novapj.rendimento = 8000;
 
                             PessoaJuridica pj = new PessoaJuridica();
                             Console.WriteLine(pj.pagarImposto(novapj.rendimento).ToString("N2"));
-                            
                             if (pj.validarCNPJ(novapj.cnpj))
                             {
                                 Console.WriteLine("CNPJ válido.");
                                 Console.WriteLine("Cadastro aprovado.");
+                                GuardarArquivo(novapj.razaoSocial, "Razão Social", novapj.razaoSocial, "CNPJ", novapj.cnpj);
                                 ListaPJ.Add(novapj);
                             }
                             else
@@ -199,11 +208,11 @@ namespace Encontro_Remoto
                             break;
 
                     }
-                }while (opçao != "0");
+            }while (opçao != "0");
 
 
             
-            ;
+        
         }
     
     
@@ -221,5 +230,17 @@ namespace Encontro_Remoto
         Console.ResetColor();
 
     }
+    static void GuardarArquivo(string? nomearquivo, string? tiponome, string? nomepessoa ,string? tipodec, string? c){
+            String caminhoDoArquivo = (@$"C:\\Users\\User\\Desktop\\Encontro_Remoto\\pessoas\\{nomearquivo}.txt");
+            var Stream = new StreamWriter(caminhoDoArquivo);
+            Stream.Write(@$"
+            {tiponome}: {nomepessoa}
+            {tipodec}: {c}");
+            Stream.Close();
+            using(var reader = new StreamReader(caminhoDoArquivo))
+            {
+                Console.WriteLine(reader.ReadLine());
+            }
+        }
     }
 }
