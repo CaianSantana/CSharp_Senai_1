@@ -6,7 +6,7 @@
 ## Features
 
 * Registro de pessoas físicas e jurídicas
-para pessoas físicas, ele pede: CPF, Nome e Data de Nascimento;
+* para pessoas físicas, ele pede: CPF, Nome e Data de Nascimento;
 
 para pessoas jurídicas: CNPJ e Razão Social;
 
